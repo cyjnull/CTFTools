@@ -1,2 +1,2 @@
 # CTFTools
-CTF部分常用工具
+CTF部分常用函数算法
