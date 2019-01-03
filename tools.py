@@ -11,6 +11,79 @@ class CTFTools:
     '''
 
     @staticmethod
+    def morse_code_encrypt(text,sep=' '):
+        ''' 摩尔斯密码加密
+        :param text: 加密的文字
+        :param sep: 间隔符
+        :return:
+        '''
+        chars = ",.0123456789?abcdefghijklmnopqrstuvwxyz "
+        codes = """--..-- .-.-.- ----- .---- ..--- ...-- ....- ..... -.... --... ---..
+              ----. ..--.. .- -... -.-. -... . ..-. --. .... .. .--- -.- .-.. --
+              -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --.. """
+        keys = dict(zip(chars, codes.split()))
+        keys[' ']=' '
+
+        def char2morse(char):
+            return keys.get(char.lower(), char)
+
+        print(sep.join(char2morse(c) for c in text))
+
+    def morse_code_decrypt(text,sep=' '):
+        ''' 摩尔斯密码解密
+        :param text: 解密的文字
+        :param sep: 间隔符
+        :return:
+        '''
+        s = text.split(sep)
+        dict = {
+            '.-': 'A',
+            '-...': 'B',
+            '-.-.': 'C',
+            '-..': 'D',
+            '.': 'E',
+            '..-.': 'F',
+            '--.': 'G',
+            '....': 'H',
+            '..': 'I',
+            '.---': 'J',
+            '-.-': 'K',
+            '.-..': 'L',
+            '--': 'M',
+            '-.': 'N',
+            '---': 'O',
+            '.--.': 'P',
+            '--.-': 'Q',
+            '.-.': 'R',
+            '...': 'S',
+            '-': 'T',
+            '..-': 'U',
+            '...-': 'V',
+            '.--': 'W',
+            '-..-': 'X',
+            '-.--': 'Y',
+            '--..': 'Z',
+            '.----': '1',
+            '..---': '2',
+            '...--': '3',
+            '....-': '4',
+            '.....': '5',
+            '-....': '6',
+            '--...': '7',
+            '---..': '8',
+            '----.': '9',
+            '-----': '0',
+            '..--..': '?',
+            '-..-.': '/',
+            '-.--.-': '()',
+            '-....-': '-',
+            '.-.-.-': '.'
+        }
+        for item in s:
+            print(dict[item], end='')
+
+
+    @staticmethod
     def caesar_cipher_list(text):
         ''' 展示出所有的凯撒密码可能的情况
         使用print打印出所有凯撒密码的组合

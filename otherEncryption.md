@@ -11,4 +11,4 @@
 #### 计划编写的
 
  AES,DES,RC4,Rabbit,TripleDes，Rot13
-摩斯密码
+摩斯密码3空格和7空格
